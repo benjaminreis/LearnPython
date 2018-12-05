@@ -10,17 +10,17 @@ def ParseChoice(choice) :
 def GetOption() :
     nChoice = -1
 
-    while nChoice <= 0:
+    while nChoice < 0:
 
         choice = input("Which sample do you wish to perform?")
         print("you chose: " + choice)
 
-        nChoice = ParseChoice(choice)
+        nChoice =  ParseChoice(choice)
         if nChoice >= 0:
             break
 
         print("You chose an invalid option.  Choose wisely :-)")
-
+    return nChoice
 
 
 option = GetOption()
