@@ -1,4 +1,5 @@
 from X0.HelloWorld import HelloWorld
+from X1.FizzBuzz import FizzBuzz
 
 def ParseChoice(choice) :
     try:
