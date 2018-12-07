@@ -41,6 +41,8 @@ elif option == 2:
     findprimes = FindPrimes()
     findprimes.get_prime_to_find()
     #findprimes.calculate_factors(15)
-    #TODO BEN finish this
+    #TODO BEN finish
+    nthprime = findprimes.nth_prime(findprimes._PrimeToFind)
+    print(str(nthprime))
 else:
     print("you didn't choose an implemented option, better luck next time")
