@@ -51,6 +51,26 @@ class LoanCalcBasic:
             print("You chose an invalid option.  Choose wisely :-)")
         self._principal = fPrincipal
 
+    def get_term(self):
+
+        sLoanType = ""
+        while sLoanType != "home" | sLoanType != "auto":
+            sLoanType = input("Is this a Home Loan or Car loan?  E.G.: enter \"Home\" or \"Auto\".").lower()
+        nTerm = -1
+        sTerm = ""
+        if sLoanType == "auto":
+            while nTerm < 0:
+                sTerm = input("Enter loan term in Months.  E.G.: 60")
+                nTerm = parse_int_choice(sTerm)
+                if nTerm > 0:
+                    break
+        elif sLoanType == "home":
+            while nTerm < 0:
+                sTerm = input("Enter loan term in Years.  E.G.: 30, 15")
+                nTerm = parse_int_choice(sTerm)
+                if nTerm > 0:
+                    break
+
 
 def parse_decimal_choice(choice):
     try:
@@ -58,3 +78,11 @@ def parse_decimal_choice(choice):
         return i
     except ValueError:
         return -1.0
+
+
+def parse_int_choice(choice):
+    try:
+        i = int(choice)
+        return i
+    except ValueError:
+        return -1
