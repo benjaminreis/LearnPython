@@ -54,7 +54,7 @@ class LoanCalcBasic:
     def get_term(self):
 
         sLoanType = ""
-        while sLoanType != "home" | sLoanType != "auto":
+        while sLoanType != "home" and sLoanType != "auto":
             sLoanType = input("Is this a Home Loan or Car loan?  E.G.: enter \"Home\" or \"Auto\".").lower()
         nTerm = -1
         sTerm = ""
@@ -70,6 +70,7 @@ class LoanCalcBasic:
                 nTerm = parse_int_choice(sTerm)
                 if nTerm > 0:
                     break
+        self._term = nTerm
 
 
 def parse_decimal_choice(choice):

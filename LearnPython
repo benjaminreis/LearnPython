@@ -1,6 +1,7 @@
 from X0.HelloWorld import HelloWorld
 from X1.FizzBuzz import FizzBuzz
 from X2.FindPrimes import FindPrimes
+from X3.LoanCalcBasic import LoanCalcBasic
 
 
 def ParseChoice(choice) :
@@ -42,5 +43,12 @@ elif option == 2:
     findprimes.get_prime_to_find()
     nthprime = findprimes.nth_prime(findprimes._PrimeToFind)
     print("The " + str(findprimes._PrimeToFind) + "th/nd/st prime is: " + str(nthprime))
+elif option == 3:
+    loancalcbasic = LoanCalcBasic()
+    loancalcbasic.get_interest_rate()
+    loancalcbasic.get_principal()
+    loancalcbasic.get_term()
+
+    print("The interest rate you chose: " + str(loancalcbasic._interest_rate))
 else:
     print("you didn't choose an implemented option, better luck next time")
