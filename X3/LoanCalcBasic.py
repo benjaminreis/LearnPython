@@ -30,4 +30,31 @@ class LoanCalcBasic:
         self._term = value
 
     def get_interest_rate(self):
-        return 1
+        sRate = input("Enter interest rate as a decimal.  E.G.: 4.1")
+        fRate = -1.0
+        while fRate < 0:  #negative interest rates?  maybe not for this trivial exercise...
+            fRate = parse_decimal_choice(sRate)
+            if fRate >= 0:
+                break
+
+            print("You chose an invalid option.  Choose wisely :-)")
+        self._interest_rate = fRate
+
+    def get_principal(self):
+        sPrincipal = input("Enter Principal as a decimal.  E.G.: 42,000")
+        fPrincipal = -1.0
+        while fPrincipal < 0:
+            nRate = parse_decimal_choice(sPrincipal)
+            if nRate >= 0:
+                break
+
+            print("You chose an invalid option.  Choose wisely :-)")
+        self._principal = fPrincipal
+
+
+def parse_decimal_choice(choice):
+    try:
+        i = float(choice)
+        return i
+    except ValueError:
+        return -1.0

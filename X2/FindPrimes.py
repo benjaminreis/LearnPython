@@ -30,7 +30,6 @@ class FindPrimes:
         return last_prime
 
 
-
 def calculatefactors(n):
     primes = []
     for i in range(2, n+1):
