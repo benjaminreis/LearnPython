@@ -3,7 +3,7 @@ class LoanCalcBasic:
     def __init__(self):
         self._principal = None
         self._interest_rate = None
-        self._term = None
+        self._term = None   #stored as Months
 
     @property
     def principal(self):
@@ -35,20 +35,16 @@ class LoanCalcBasic:
         while fRate < 0:  #negative interest rates?  maybe not for this trivial exercise...
             fRate = parse_decimal_choice(sRate)
             if fRate >= 0:
-                break
-
-            print("You chose an invalid option.  Choose wisely :-)")
-        self._interest_rate = fRate
+                print("You chose an invalid option.  Choose wisely :-)")
+        self._interest_rate = fRate / 100.0
 
     def get_principal(self):
-        sPrincipal = input("Enter Principal as a decimal.  E.G.: 42,000")
         fPrincipal = -1.0
         while fPrincipal < 0:
-            nRate = parse_decimal_choice(sPrincipal)
-            if nRate >= 0:
-                break
-
-            print("You chose an invalid option.  Choose wisely :-)")
+            sPrincipal = input("Enter Principal as a decimal.  E.G.: 42,000")
+            fPrincipal = parse_decimal_choice(sPrincipal)
+            if fPrincipal < 0.0:
+                print("You chose an invalid option.  Choose wisely :-)")
         self._principal = fPrincipal
 
     def get_term(self):
@@ -67,14 +63,25 @@ class LoanCalcBasic:
         elif sLoanType == "home":
             while nTerm < 0:
                 sTerm = input("Enter loan term in Years.  E.G.: 30, 15")
-                nTerm = parse_int_choice(sTerm)
+                nTerm = parse_int_choice(sTerm) * 12
                 if nTerm > 0:
                     break
         self._term = nTerm
 
     def calc_monthly_payment(self):
-        
-        return -1.0
+
+        monthly_interest_rate = self._interest_rate / 12.0
+        number_of_months = self._term
+        print("The number of months: " + str(number_of_months))
+        print("monthly interest rate: " + str(monthly_interest_rate))
+        print("self.principal: " + str(self._principal))
+        numerator = self._principal * monthly_interest_rate
+        denominator = (1.0 - ((1.0 + monthly_interest_rate)**(-1 * number_of_months)))
+        print(str(numerator))
+        print(str(denominator))
+        temp = numerator / denominator
+
+        return temp
 
 
 def parse_decimal_choice(choice):
