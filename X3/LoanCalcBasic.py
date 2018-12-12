@@ -34,7 +34,7 @@ class LoanCalcBasic:
         fRate = -1.0
         while fRate < 0:  #negative interest rates?  maybe not for this trivial exercise...
             fRate = parse_decimal_choice(sRate)
-            if fRate >= 0:
+            if fRate < 0.0:
                 print("You chose an invalid option.  Choose wisely :-)")
         self._interest_rate = fRate / 100.0
 
@@ -72,16 +72,9 @@ class LoanCalcBasic:
 
         monthly_interest_rate = self._interest_rate / 12.0
         number_of_months = self._term
-        print("The number of months: " + str(number_of_months))
-        print("monthly interest rate: " + str(monthly_interest_rate))
-        print("self.principal: " + str(self._principal))
         numerator = self._principal * monthly_interest_rate
         denominator = (1.0 - ((1.0 + monthly_interest_rate)**(-1 * number_of_months)))
-        print(str(numerator))
-        print(str(denominator))
-        temp = numerator / denominator
-
-        return temp
+        return numerator / denominator
 
 
 def parse_decimal_choice(choice):

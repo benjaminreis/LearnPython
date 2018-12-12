@@ -48,7 +48,6 @@ elif option == 3:
     loancalcbasic.get_interest_rate()
     loancalcbasic.get_principal()
     loancalcbasic.get_term()
-    print("Your monthly payment: $" + str(loancalcbasic.calc_monthly_payment()))
-    print("The interest rate you chose: " + str(loancalcbasic._interest_rate * 100) + "%")
+    print("Your monthly payment: " + '${:,.2f}'.format(loancalcbasic.calc_monthly_payment()))
 else:
     print("you didn't choose an implemented option, better luck next time")
