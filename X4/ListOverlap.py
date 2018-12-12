@@ -21,8 +21,16 @@ def GenerateLists(self, length):
 
 
 def FindIntersection(self):
-    intersection = set(self._list_one).intersection(self._list_two)
+    #intersection = set(self._list_one).intersection(self._list_two)
+    #leaving intersection in code to show a cuter way of doing it
+    matching = []
+    for a in self._list_one:
+        if a in self._list_two:
+            if a not in matching:
+                matching.append(a)
+
     print("Here's your first list: " + str(self._list_one))
     print("Here's your second list: " + str(self._list_two))
-    print(intersection)
+    #print(intersection)
+    print(matching)
 
