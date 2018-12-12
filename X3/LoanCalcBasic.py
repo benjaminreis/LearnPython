@@ -72,6 +72,10 @@ class LoanCalcBasic:
                     break
         self._term = nTerm
 
+    def calc_monthly_payment(self):
+        
+        return -1.0
+
 
 def parse_decimal_choice(choice):
     try:
