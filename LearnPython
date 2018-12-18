@@ -56,6 +56,8 @@ elif option == 4:
     listoverlap.GetListsLengthsFromUser()
 elif option == 5:
     reverse_word_order = ReverseWordOrder()
+    reverse_word_order.GetPhraseToReverse()
+    print(reverse_word_order.ReversePhrase())
 
 else:
     print("you didn't choose an implemented option, better luck next time")
